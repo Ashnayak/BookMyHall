@@ -45,6 +45,9 @@ return;
 app.get('/',function(req,res){
     res.render('index');
 })
+app.get('/index',function(req,res){
+    res.render('index');
+})
 
 app.get('/login',function(req,res){
     res.render('selectUser');
@@ -71,9 +74,6 @@ app.get('/request',function(req,res){
     res.render('request');
 })
 
-app.get('/pdean',function(req,res){
-    res.render('pdean');
-})
 
 
 
@@ -99,7 +99,7 @@ app.post('/dashboardDean',function(req,res){
             
                 
         }else{
-            console.log("Dont Poke Your Nose where you don't Belong!");
+            
             res.render("error",{message:"Dont Poke Your Nose where you don't Belong!"});
         }
     });
@@ -136,7 +136,6 @@ app.post('/dashboardFaculty',function(req,res){
     });
     
   
-    //res.render('dashboardFaculty');
 })
 
 app.post('/dashboardFacility',function(req,res){
@@ -210,6 +209,10 @@ app.get('/dashboardFacility',function(req,res){
 app.get('/dashboardClub',function(req,res){
     res.render('dashboardClub');
 })
+app.get('/anagha',function(req,res){
+    res.render('anagha');
+})
+
 
 
 app.post('/makeRequest',function(req,res){
@@ -243,18 +246,18 @@ app.post('/makeRequest',function(req,res){
 
     con.query('insert into requests set ?',re,function(err,result){
         if(!err){console.log("success");
-        res.render("dashboardClub",{message:"Yaay! It Worked???"});
-        }else{
-            console.log(err);
-            res.render("error",{message:"Crap, not working."});
-        }
-        
+                res.render("dashboardClub",{message:"Yaay! It Worked!!!"});
+                }else{
+                    console.log(err);
+                    res.render("error",{message:"Not working."});
+              }
            });
+        });
 
 
-});
 
-app.get('/aaa',function(req,res){
+
+app.get('/pdean',function(req,res){
     var request = "Select * from requests;"
 
     con.query(request,function(req,data){
@@ -262,5 +265,150 @@ app.get('/aaa',function(req,res){
         res.render('pdean',{res:data});
     });
 })
+
+app.get('/pfacility',function(req,res){
+    var request = "Select * from requests;"
+
+    con.query(request,function(req,data){
+        console.log(data);
+        res.render('pfacility',{res:data});
+    });
+})
+
+
+
+app.get('/grantPermission',function(req,res){
+    rid = req.query.rid;
+    status = JSON.stringify(req.query.status);
+    console.log(status+"   "+ rid)
+    var query = "update requests set pd="+status+" where rid="+ rid+" ;"
+    console.log(query);
+    query1 = "select * from requests;"
+    console.log(query1);
+    
+        con.query(query,function(err,result){
+            console.log("ash")
+             res.render("dashboardDean",{message:"Cool"});
+                   });
+                   
+        });
+
+        
+
+    /* for(var i=1;i<len;i++){
+        console.log(parseInt(req.query.ap1))
+        var bc=parseInt(req.query.ap1);
+        console.log("bc"+bc)
+         if(bc=="1"||bc=="2")
+         {
+         console.log("hey")
+        console.log(req.query.i)
+      con.query('update requests set pd=? where rid=?',[1,i],function(err,result){
+             console.log("hooo"+err)
+             console.log(result)
+             res.render("dashboardDean",{message:"Cool"});
+                   });
+                   }
+              }
+        });*/
+
+
+      
+             
+         
+        
+   
+
+
+        
+           app.get('/SudhamaniHallInfo',function(req,res){
+            var request = "Select * from requests where Hname='Sudhamani';"
+        
+            con.query(request,function(req,data){
+                console.log(data);
+                res.render('SudhamaniHallInfo',{res:data});
+            });
+             })
+
+        app.get('/ValmikiHallInfo',function(req,res){
+            var request = "Select * from requests where Hname='Valmiki';"
+        
+            con.query(request,function(req,data){
+                console.log(data);
+                res.render('ValmikiHallInfo',{res:data});
+            });
+        })
+
+
+        app.get('/VyasaHallInfo',function(req,res){
+            var request = "Select * from requests where Hname='Vyasa';"
+        
+            con.query(request,function(req,data){
+                console.log(data);
+                res.render('VyasaHallInfo',{res:data});
+            });
+        })
+
+
+        app.get('/RamaHallInfo',function(req,res){
+            var request = "Select * from requests where Hname='Rama';"
+        
+            con.query(request,function(req,data){
+                console.log(data);
+                res.render('RamaHallInfo',{res:data});
+            });
+        })
+
+
+        app.get('/KrishnaHallInfo',function(req,res){
+            var request = "Select * from requests where Hname='Krishna';"
+        
+            con.query(request,function(req,data){
+                console.log(data);
+                res.render('KrishnaHallInfo',{res:data});
+            });
+        })
+
+
+        app.get('/E-LearningHallInfo',function(req,res){
+            var request = "Select * from requests where Hname='ELearning';"
+        
+            con.query(request,function(req,data){
+                console.log(data);
+                res.render('E-LearningHallInfo',{res:data});
+            });
+        })
+
+
+        app.get('/AmriteshwariHallInfo',function(req,res){
+            var request = "Select * from requests where Hname='Amriteshwari';"
+        
+            con.query(request,function(req,data){
+                console.log(data);
+                res.render('AmriteshwariHallInfo',{res:data});
+            });
+        })
+
+
+     
+
+app.get('/grantPermission',function(req,res){
+    var len= req.query.len;
+    console.log("the length"+len);
+     var stat= req.query.status2;
+    
+    console.log(stat);
+   for (var i=1;i<=len;i++){}
+     var pd = req.body.status+i;
+   console.log("ans"+status+i);
+    con.query('insert into requests set ?',pd,function(err,result){
+        if(!err){console.log("success");
+        res.render("/pdean",{message:"Yaay! It Worked!!!"});
+        }else{
+            console.log(err);
+            res.render("error",{message:"not working."});
+      }
+   });
+});
 
 

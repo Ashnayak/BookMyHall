@@ -38,7 +38,7 @@
           <div class="row">
 
             <div class="row">
-              <h3 class="center">Dean's
+              <h3 class="center">Facility's
                 <br>Pending Request List</h3>
 
             </div>
@@ -101,35 +101,26 @@
                         <td> Event Name :
                           <%= res[i].EventName  %>
                         </td>
-                      <form action="/grantPermission" method="get">
-                        <br>
+
+                       <!-- <br>
                             <input name="ap<%=res[i].rid%>" type="radio" id="<%=res[i].rid%>Approved" value="1" />
                             <label for="<%=res[i].rid%>Approved">Approved</label>
                             <br> 
                             <input name="ap<%=res[i].rid%>" type="radio" id="<%=res[i].rid%>Rejected" value="2" />
                             <label for="<%=res[i].rid%>Rejected">Rejected</label>    
                         <br> 
-                        <!--button class="btn waves-effect waves-light" type="submit">Done
-                          <i class="material-icons right">send</i>
-                        </button>
-                        </form>-->
-                        
-                        
+                        "Rejected<%= res[i].rid  %>">Rejected</option>
                              
                   
-                      
-
-                    
+                      -->
                       <form action="/grantPermission" method="get">
                       <div class="row">
-                                  <input type="hidden" name="rid" value="<%=res[i].rid%>">
                                   <div class="input-field col s12">
                                       <select name="status">
                                         <option id="Pending" value="Pending">Pending</option>
                                         <option id="Approved" value="Approved">Approved</option>
                                         <option id="Rejected" value="Rejected">Rejected</option>
                                       </select>
-                                      
                                       
                                       <label>Request Status</label>
                                     </div>
@@ -138,13 +129,11 @@
                                     </button>
                                     
                               </div>
-                            </form> 
+                            </form>
                                           
                       </tr>
                     </div>
                     <% } %>
-
-                    
 
                       </table>
                       <div class="row"></div>
