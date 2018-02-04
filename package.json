@@ -1,13 +1,40 @@
 {
-  "name": "hallbooking",
+  "name": "bookmyhall",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "keywords": [
+    "Amrita",
+    "BookMyHall",
+    "Hall",
+    "Booking"
+  ],
+  "man": [
+    "./README.MD"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Panda",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ashnayak/BookMyHall.git"
+  },
+  "author": "Contributors",
+  "contributors": [
+    {
+      "name": "Aravind V Nair",
+      "url": "https://aravindvnair1999.blogspot.com"
+    },
+    {
+      "name": "Ashwini Nayak",
+      "url": "https://github.com/Ashnayak"
+    }
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Ashnayak/BookMyHall/issues"
+  },
+  "homepage": "https://github.com/Ashnayak/BookMyHall",
   "dependencies": {
     "express": "^4.16.2",
     "mysql": "^2.15.0"
