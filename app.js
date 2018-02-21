@@ -255,17 +255,6 @@ app.post('/makeRequest', function (req, res) {
         }
     });
 });
-<<<<<<< HEAD
-
-
-
-
-=======
-
-
-
-
->>>>>>> e30c22b20fcc39f9701e29e70eb563a377d34a3b
 app.get('/pdean', function (req, res) {
     var request = "Select * from requests;"
 
@@ -284,9 +273,6 @@ app.get('/pfacility', function (req, res) {
     });
 })
 
-<<<<<<< HEAD
-
-
 app.get('/grantPermission', function (req, res) {
     rid = req.query.rid;
     status = JSON.stringify(req.query.status);
@@ -302,26 +288,6 @@ app.get('/grantPermission', function (req, res) {
     });
 
 });
-
-
-=======
-/*app.get('/grantPermission',function(req,res){
-
-     var len= req.query.len;
-     console.log("the length"+len);
-
-     for(var param in req.query){
-        var bc=req.query[param];
-         if(bc.length!=0)
-         {
-        con.query('update requests set pd=? where rid=?',[req.query[param],param],function(err,result){
-
-             res.render("dashboardDean",{message:"Cool"});
-                   });
-                   }
-              }
-        });*/
->>>>>>> e30c22b20fcc39f9701e29e70eb563a377d34a3b
 
 /* for(var i=1;i<len;i++){
     console.log(parseInt(req.query.ap1))
@@ -339,15 +305,6 @@ app.get('/grantPermission', function (req, res) {
                }
           }
     });*/
-
-
-
-
-
-
-
-
-
 
 app.get('/SudhamaniHallInfo', function (req, res) {
     var request = "Select * from requests where Hname='Sudhamani';"
@@ -367,7 +324,6 @@ app.get('/ValmikiHallInfo', function (req, res) {
     });
 })
 
-
 app.get('/VyasaHallInfo', function (req, res) {
     var request = "Select * from requests where Hname='Vyasa';"
 
@@ -376,7 +332,6 @@ app.get('/VyasaHallInfo', function (req, res) {
         res.render('VyasaHallInfo', { res: data });
     });
 })
-
 
 app.get('/RamaHallInfo', function (req, res) {
     var request = "Select * from requests where Hname='Rama';"
@@ -439,5 +394,3 @@ app.get('/grantPermission', function (req, res) {
         }
     });
 });
-
-
