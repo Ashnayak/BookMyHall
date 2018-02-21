@@ -5,7 +5,6 @@ var express = require("express"),
     bodyParser = require('body-parser'),
     mysql = require('mysql');
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -13,17 +12,12 @@ app.use(bodyParser.urlencoded({
 app.set('port', (process.env.PORT || 8000));
 app.use(express.static(__dirname + '/public'));
 
-
-
-
 app.set('views', path);
 app.set('view engine', 'ejs');
-
 
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
 });
-
 
 var con = mysql.createConnection({
     host: "localhost",
@@ -32,7 +26,6 @@ var con = mysql.createConnection({
     database: 'hallbooking',
     multipleStatements: true
 });
-
 
 con.connect(function (error) {
     if (error) {
